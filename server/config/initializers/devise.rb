@@ -266,8 +266,11 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
+  config.navigational_formats = [:json]
   config.sign_out_via = :delete
-  config.navigational_formats = []
+  config.jwt do |jwt|
+    jwt.secret = Rails.application.credentials.devise['#{ENV[SECRET_TOKEN]}']
+  end
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
