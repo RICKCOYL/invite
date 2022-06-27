@@ -1,6 +1,7 @@
 # Invitation App
 
 ## Front End built with react and material ui
+### Front end will be running on `http://localhost:3006/`
 
 To Access the frontend 
 
@@ -16,6 +17,7 @@ And the app should open on http://localhost:3006/ automatically
 
 
 ## Backend End built with Rails
+### Backend will be running on `http://localhost:3000`
 
 To access the backend run the following commands
 
