@@ -50,14 +50,14 @@ gmail_password:
 
 ![screenshot1](./images/google%20signin.png)
 
-- Click on `App Passwords` you might be prompted to verify your email. please do so! and you will directed to a page similar to one shown below
+- Click on `App Passwords` you might be prompted to verify your email. please do so! and you will be directed to a page similar to one shown below
 
 
 ![screenshot1](./images/app%20password.png)
 
-- Next select `App` and choose `Mail`
-- Next select `select device` and choose `other(custom name)`
-- Next you will be given an input where you will add a custom name example `Rails app` add  the name and click `Generate`
+- Next select `Select App` and choose the `Mail` option
+- Next select `select device` and choose the `other(custom name)` option
+- Next you will be given an input where you will add a custom name for your password for example `Rails app` an then click `Generate`
 - Finally you will be prompted with a 16 digit password copy it and paste it into your `gmail_password`
 
 
