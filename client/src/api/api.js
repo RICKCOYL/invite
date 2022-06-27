@@ -5,7 +5,8 @@ import jwt_decode from "jwt-decode"
 const url = "http://localhost:3000"
 
 export const signUpUser = async user => {
-  return await axios
+  try {
+    const response = await axios
     .post(`${url}/users`, {
       user: {
         email: user.email,
@@ -13,13 +14,23 @@ export const signUpUser = async user => {
         password_confirmation: user.password_confirmation
       }
     })
-    .then(res => {
-      localStorage.setItem("token", JSON.stringify(res.headers.authorization))
-      return console.log(res)
-    })
-    .catch(err => {
-      return console.log(err)
-    })
+
+    localStorage.setItem("token", JSON.stringify(response.headers.authorization))
+    return response 
+  } catch (error) {
+    console.log(error)
+  }
+    
+}
+
+export const fetchInvites = async () => {
+  try {
+    const response = await axios.get(`${url}/invites`)
+    const invites = await response.data
+    return invites
+    } catch (error) {
+    console.log(error)
+  }
 }
 
 export const sendInvite = async invite => {

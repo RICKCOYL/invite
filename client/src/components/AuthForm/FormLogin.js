@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { TextField, Box, Button } from "@material-ui/core"
+import { TextField, Box, Button,Typography  } from "@material-ui/core"
 import { loginUser } from "../../api/api"
 
 const FormLogin = ({loading,token}) => {
@@ -16,7 +16,6 @@ const FormLogin = ({loading,token}) => {
         const res = await loginUser(user)
         
         if(res.status === 200){
-        // console.log(res,"$$$$$")
             navigate("/invites")
         }
 
@@ -29,9 +28,8 @@ const FormLogin = ({loading,token}) => {
     
   return (
     <>
-    <h2>
-      LOGIN
-    </h2>
+   
+    <Typography variant="h4" color="initial">LOGIN</Typography>
     <form onSubmit={handleSubmit} mt={2}>
         <Box>
           <TextField

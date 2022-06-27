@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import React from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 import { Container } from "@material-ui/core"
@@ -7,12 +7,9 @@ import FormSignUp from "./components/AuthForm/FormSignUp"
 import FormLogin from "./components/AuthForm/FormLogin"
 import Invites from "./components/invites/Invites"
 import NavBar from "./components/NavBar/NavBar"
-import PrivateRoutes from "./components/utils/PrivateRoutes"
 
 const App = () => {
   const token= localStorage.getItem("token")
-
-  console.log(token, "$$$$$$$$$")
 
   return (
     <Router>

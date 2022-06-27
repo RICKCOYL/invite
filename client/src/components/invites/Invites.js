@@ -1,33 +1,48 @@
-import React,{useState} from "react"
+import React,{useState, useEffect} from "react"
 import {Navigate} from "react-router-dom"
-import {TextField,Box,Button} from '@material-ui/core'
-import { sendInvite } from "../../api/api"
+import {TextField,Box,Button,Typography } from '@material-ui/core'
+import { sendInvite,fetchInvites } from "../../api/api"
+import InvitesList from "./InvitesList"
 
 const Invites = () => {
   const token= localStorage.getItem("token")
 
-
-  console.log(token, "Invites token")
   const [invite, setInvite] = useState({
     email: ""
   })
+
+  const [invites, setInvites] = useState([])
+
+  useEffect( () => {
+    async function fetchData() {
+     const res =  await fetchInvites()
+      setInvites(res)
+
+    }
+    fetchData()
+  }, [])
   
 
-  const handleSubmit = e => {
+  console.log(invites, "%%%%")
+  
+
+  const handleSubmit = async (e )=> {
     e.preventDefault()
     sendInvite(invite)
+    const res = await fetchInvites()
+    setInvites(res)
     setInvite({
       email: ""
     })
   }
 
   return (
-    <>
-    {!token ? <Navigate to="/sign_in" /> :
-    <>
-    <h2>
+    <Box>
+    {!token ? <Navigate to="/sign_in" /> : (
+      <>
+    <Typography variant="h4" >
       Invite a new user by using there email address
-    </h2>
+    </Typography>
     <form onSubmit={handleSubmit}>
        <Box
       sx={{
@@ -47,9 +62,11 @@ const Invites = () => {
       <Button type="submit" variant="contained" color="primary" >Send invite</Button>
       </Box>
     </form>
-    </>
-}
-    </>
+    </>)
+    }
+     
+    <InvitesList invites={invites} />
+</Box>
   )
 }
 

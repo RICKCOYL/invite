@@ -7,8 +7,11 @@ import {
   Button,
   ButtonGroup
 } from "@material-ui/core"
+import { useLocation } from 'react-router-dom';
 
 const NavBar = () => {
+
+  const location = useLocation();
   const token= localStorage.getItem("token")
    
 
