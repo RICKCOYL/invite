@@ -72,7 +72,7 @@ gmail_password: <And Password Generated from Gmail.com>
 
 ```
 
-- ### Now ``` rails s``` and enjoy the app
+- ### Now run ``` rails s``` and sign up
 
 
 
